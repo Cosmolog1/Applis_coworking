@@ -56,3 +56,68 @@ for (let i = 0; i < buttons.length; i++) {
   
   
 }
+
+// Choix maison poudlard
+
+const form1 = document.querySelector("#form1")
+
+        form1.addEventListener("submit",(event)=>{
+          console.log('test')
+        event.preventDefault()
+        let answer1 = document.querySelector('input[name=choix1]:checked').value
+        let answer2 = document.querySelector('input[name=choix2]:checked').value
+        let answer3 = document.querySelector('input[name=choix3]:checked').value
+        let answer4 = document.querySelector('input[name=choix4]:checked').value
+        let answer5 = document.querySelector('input[name=choix5]:checked').value
+          
+        const answers = [answer1,answer2,answer3,answer4,answer5]
+        let nb_answer1 = 0
+        let nb_answer2 = 0
+        let nb_answer3 = 0
+        let nb_answer4 = 0
+        let nb_answer5 = 0
+    
+        for (let el of answers) {
+          if (el==1) {
+            nb_answer1 += 1;
+          }
+          if (el==2) {
+            nb_answer2 += 1;
+          }
+          if (el==3) {
+            nb_answer3 += 1;
+          }
+          if (el==4) {
+            nb_answer1 += 4;
+          }
+          if (el==5) {
+            nb_answer1 += 5;
+          }
+        }
+
+
+
+
+        let maison = "" 
+
+        if (nb_answer1 > nb_answer2 && nb_answer1 > nb_answer3 && nb_answer1 > nb_answer4 && nb_answer1 > nb_answer5){
+          maison = "gryffondor"
+        }
+        else if (nb_answer2 > nb_answer1 && nb_answer3 && nb_answer4 && nb_answer5){
+          maison = "serpentard" 
+        }
+        else if (nb_answer3 > nb_answer1 && nb_answer2 && nb_answer4 && nb_answer5){
+          maison = "serdaigle"
+        }
+        else if (nb_answer4 > nb_answer1 && nb_answer2 && nb_answer3 && nb_answer5){
+          maison = "pouffsoufle"
+        }
+      
+        else {
+          maison = "moldus"
+        }
+      
+        alert(maison);
+      })
+
+   

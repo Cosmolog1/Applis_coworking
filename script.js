@@ -29,7 +29,7 @@ const citations = ["Nouvelle technique : on passe pour des cons, les autres se m
 
 // Pierre papier ciseaux
 
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".button");
 
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener('click', function() {
@@ -62,7 +62,6 @@ for (let i = 0; i < buttons.length; i++) {
 const form1 = document.querySelector("#form1")
 
         form1.addEventListener("submit",(event)=>{
-          console.log('test')
         event.preventDefault()
         let answer1 = document.querySelector('input[name=choix1]:checked').value
         let answer2 = document.querySelector('input[name=choix2]:checked').value
@@ -76,40 +75,38 @@ const form1 = document.querySelector("#form1")
         let nb_answer3 = 0
         let nb_answer4 = 0
         let nb_answer5 = 0
-    
+
         for (let el of answers) {
           if (el==1) {
-            nb_answer1 += 1;
+            nb_answer1++;
           }
           if (el==2) {
-            nb_answer2 += 1;
+            nb_answer2++;
           }
           if (el==3) {
-            nb_answer3 += 1;
+            nb_answer3++;
           }
           if (el==4) {
-            nb_answer1 += 4;
+            nb_answer4++;
           }
           if (el==5) {
-            nb_answer1 += 5;
+            nb_answer5++;
           }
         }
-
-
 
 
         let maison = "" 
 
-        if (nb_answer1 > nb_answer2 && nb_answer1 > nb_answer3 && nb_answer1 > nb_answer4 && nb_answer1 > nb_answer5){
+        if (nb_answer1 >= 3 ){
           maison = "gryffondor"
         }
-        else if (nb_answer2 > nb_answer1 && nb_answer3 && nb_answer4 && nb_answer5){
+        else if (nb_answer2 >= 3 ){
           maison = "serpentard" 
         }
-        else if (nb_answer3 > nb_answer1 && nb_answer2 && nb_answer4 && nb_answer5){
+        else if (nb_answer3 >= 3 ){
           maison = "serdaigle"
         }
-        else if (nb_answer4 > nb_answer1 && nb_answer2 && nb_answer3 && nb_answer5){
+        else if (nb_answer4 >= 3 ){
           maison = "pouffsoufle"
         }
       
